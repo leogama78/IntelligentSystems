@@ -1,0 +1,4 @@
+US Accidents (2016 - 2021) dataset available here:
+
+https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents
+
