@@ -10,10 +10,10 @@ df['End_Time'] = pd.to_datetime(df['End_Time'], errors='coerce')
 df['Hour']=df['Start_Time'].dt.hour
 
 features = ['Severity','Distance(mi)','Temperature(F)','Humidity(%)','Pressure(in)','Visibility(mi)','Wind_Speed(mph)','Precipitation(in)','Crossing','Junction','Traffic_Signal','Hour']
-df['Crossing'] = df['Crossing'].apply(lambda x : 0.0 if(x == 'false') else 1.0)
-df['Junction'] = df['Junction'].apply(lambda x : 0.0 if(x == 'false') else 1.0)
-df['Traffic_Signal'] = df['Traffic_Signal'].apply(lambda x : 0.0 if(x == 'false') else 1.0)
 df_feat=df[features].copy()
+df_feat['Crossing'] = df_feat['Crossing'].astype(float)
+df_feat['Junction'] = df_feat['Junction'].astype(float)
+df_feat['Traffic_Signal'] = df_feat['Traffic_Signal'].astype(float)
 df_feat.dropna(inplace=True)
 df_feat.drop_duplicates(inplace=True)
 
